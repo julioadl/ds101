@@ -95,20 +95,3 @@ wordnet_lemmatizer.lemmatize('is')
 #lemmatizer default is 'n', hence one has to change to 'v'
 wordnet_lemmatizer.lemmatize('is', pos='v')
 wordnet_lemmatizer.lemmatize('is', pos='v')
-
-#POS tagging
-nltk.pos_tag(text)
-nltk.help.upenn_tagset('JJ')
-nltk.help.upenn_tagset('IN')
-nltk.help.upenn_tagset('NNP')
-
-#Stopwords
-from nltk.corpus import stopwords
-stop = set(stopwords.words('english'))
-#Loop to remove
-
-#Word counts
-from nltk import FreqDist
-FreqDist(text)
-FreqDist(text.split())
-FreqDist(text.split()).most_common(50)
