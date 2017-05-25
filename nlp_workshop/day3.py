@@ -55,8 +55,8 @@ all_words = reuters.words()
 all_words = map(lowercase, all_words)
 
 #Pre-process data
-from nltk.corpus import stop
-stop = set(stop.words("english"))
+from nltk.corpus import stopwords
+stop = set(stopwords.words("english"))
 
 all_words_clean = []
 for word in all_words:
@@ -79,6 +79,10 @@ for doc in newsSentiment:
 		else:
 			features[word] = False
 	featureset.append((features, doc[1]))
+
+train_set, test_set = featureset[100:], featureset[:100]
+classifier = nltk.NaiveBayesClassifier.train(train_set)
+print(nltk.classify.accuracy(classifier, test_set))
 
 #Entity recognition
 #Go to http://nlp.stanford.edu/software/stanford-ner-2014-08-27.zip and download Stanford NER
