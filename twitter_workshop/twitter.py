@@ -1,5 +1,5 @@
 import oauth2 as oauth
-import urllib2 as urllib
+import urllib.request as urllib
 import json
 
 # See assignment1.html instructions or README for how to get these credentials
@@ -60,14 +60,14 @@ def fetchsamples():
   i = 0
 
   for line in response:
-    #print line.strip()
+    print(line.strip())
     if i == maximum:
       break
     else:
       data['tweets'].append(line.strip())
     i += 1
 
-  json.dump(data, open('test.json', 'w'))
+  #json.dump(data, open('test.json', 'w'))
 
 
 if __name__ == '__main__':
